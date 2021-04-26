@@ -1,0 +1,41 @@
+{
+    "name": "tos",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version",
+        "defaults": "webpack-defaults"
+    },
+    "dependencies": {
+        "bootstrap-vue": "^2.21.2",
+
+        "core-js": "^3.8.3",
+        "jquery": "^3.0.0",
+        "nuxt": "^2.14.12"
+    },
+    "devDependencies": {
+        "eslint": "^7.24.0",
+        "eslint-plugin-vue": "^7.9.0",
+        "fibers": "^5.0.0",
+        "sass": "^1.32.8",
+        "sass-loader": "^10.1.1",
+        "webpack": "^5.12.3"
+    }
+}
